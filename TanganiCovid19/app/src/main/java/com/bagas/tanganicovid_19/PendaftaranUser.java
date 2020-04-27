@@ -8,23 +8,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+public class PendaftaranUser extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_pendaftaran_user);
     }
 
-    public void lupapassword(View view) {
-        Intent lupaPassword = new Intent(this, LupaPassword.class);
-        startActivity(lupaPassword);
-        finish();
-    }
-
-    public void mendaftar(View view) {
-        Intent mendaftar  = new Intent(this, PendaftaranUser.class);
-        startActivity(mendaftar);
+    public void gotologin(View view) {
+        Intent gotoLogin = new Intent(this, MainActivity.class);
+        startActivity(gotoLogin);
         finish();
     }
 

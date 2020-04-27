@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Tangani Covid-19</string>
+    <string name="img">img</string>
+    <string name="masukkan_email_anda">Masukkan email anda</string>
 </resources>
