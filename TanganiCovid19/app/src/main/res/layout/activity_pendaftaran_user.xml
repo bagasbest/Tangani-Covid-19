@@ -15,7 +15,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mendaftar akun secara gratis \n hingga kapanpun"
+        android:text="@string/mendaftar_akun_secara_gratis_n_hingga_kapanpun"
         android:textStyle="bold"
         android:textColor="#081460"
         android:textAlignment="center"
@@ -29,27 +29,30 @@
         android:contentDescription="@string/img" />
 
     <EditText
-        android:id="@+id/et_username"
+        android:id="@+id/et_regis_user"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_et"
         android:drawableStart="@drawable/ic_person"
-        android:hint="Masukkan nama anda"
+        android:hint="@string/masukkan_nama_anda"
         android:inputType="text"
         android:drawablePadding="10dp"
-        android:padding="9dp" />
+        android:padding="9dp"
+        android:autofillHints="no" />
 
     <EditText
-        android:id="@+id/et_emailuser"
+        android:id="@+id/et_regis_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_et"
         android:drawableStart="@drawable/ic_email"
-        android:hint="Masukkan email anda"
+        android:hint="@string/masukkan_email_anda"
         android:layout_marginTop="10dp"
         android:inputType="text"
         android:drawablePadding="10dp"
-        android:padding="9dp" />
+        android:padding="9dp"
+        android:autofillHints="no"
+        tools:ignore="TextFields" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -57,36 +60,70 @@
         app:passwordToggleEnabled="true">
 
         <EditText
-            android:id="@+id/et_password"
+            android:id="@+id/et_regis_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:hint="Masukkan kata sandi"
+            android:hint="@string/masukkan_kata_sandi"
             android:inputType="textPassword"
             android:background="@drawable/rounded_et"
             android:drawableStart="@drawable/ic_password"
             android:drawablePadding="10dp"
-            android:padding="9dp" />
+            android:padding="9dp"
+            android:autofillHints="no" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/jenis_kelamin"
+            android:fontFamily="@font/m_medium"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="#081460" />
+
+        <RadioButton
+            android:id="@+id/laki"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/laki_laki"
+            android:textSize="12sp"
+            android:layout_marginStart="5dp"/>
+
+        <RadioButton
+            android:id="@+id/perempuan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/perempuan"
+            android:textSize="12sp"
+            android:layout_marginStart="5dp"/>
+
+    </RadioGroup>
     <Button
-        android:id="@+id/btn_login"
+        android:id="@+id/btn_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:background="@drawable/rounded_btn"
-        android:text="Mendaftar"
+        android:text="@string/mendaftar"
         android:textAllCaps="false"
+        android:onClick="btn_mendaftar"
         android:fontFamily="@font/m_medium"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        tools:ignore="OnClick" />
 
     <TextView
-        android:id="@+id/tv_lupa_password"
+        android:id="@+id/tv_back_to_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Kembali ke halaman Login"
+        android:text="@string/kembali_ke_halaman_login"
         android:fontFamily="@font/m_medium"
         android:layout_gravity="end"
         android:layout_marginTop="15dp"

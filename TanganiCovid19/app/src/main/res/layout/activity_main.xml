@@ -14,7 +14,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Masuk untuk memperoleh \ninformasi terkait Covid-19"
+        android:text="@string/masuk_untuk_memperoleh_ninformasi_terkait_covid_19"
         android:textStyle="bold"
         android:textColor="#081460"
         android:textAlignment="center"
@@ -33,10 +33,11 @@
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_et"
         android:drawableStart="@drawable/ic_person"
-        android:hint="Masukkan Email atau nama anda"
+        android:hint="@string/masukkan_email_atau_nama_anda"
         android:inputType="text"
         android:drawablePadding="10dp"
-        android:padding="9dp" />
+        android:padding="9dp"
+        android:autofillHints="no" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -48,12 +49,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:hint="Masukkan kata sandi"
+            android:hint="@string/masukkan_kata_sandi"
             android:inputType="textPassword"
             android:background="@drawable/rounded_et"
             android:drawableStart="@drawable/ic_password"
             android:drawablePadding="10dp"
-            android:padding="9dp" />
+            android:padding="9dp"
+            android:autofillHints="no" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -62,7 +64,7 @@
         android:id="@+id/tv_lupa_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lupa Password"
+        android:text="@string/lupa_password"
         android:fontFamily="@font/m_medium"
         android:onClick="lupapassword"
         android:layout_gravity="end"
@@ -78,7 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:background="@drawable/rounded_btn"
-        android:text="Masuk"
+        android:text="@string/masuk"
         android:textAllCaps="false"
         android:fontFamily="@font/m_medium"
         android:textColor="@android:color/white" />
@@ -86,7 +88,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Atau"
+        android:text="@string/atau"
         android:fontFamily="@font/m_medium"
         android:layout_marginTop="10dp"
         android:textColor="#081460" />
@@ -94,7 +96,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Saya Belum Memiliki Akun"
+        android:text="@string/saya_belum_memiliki_akun"
         android:onClick="mendaftar"
         android:textStyle="bold"
         android:fontFamily="@font/m_medium"
