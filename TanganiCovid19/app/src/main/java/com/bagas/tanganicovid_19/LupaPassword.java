@@ -1,19 +1,39 @@
 package com.bagas.tanganicovid_19;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class LupaPassword extends AppCompatActivity {
+
+    private EditText etEmail;
+
+    FirebaseAuth firebaseAuth;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lupa_password);
+
+        //casting view
+        etEmail = findViewById(R.id.et_email_user);
+
+        firebaseAuth = FirebaseAuth.getInstance();
     }
 
     public void gotologin(View view) {
@@ -23,6 +43,7 @@ public class LupaPassword extends AppCompatActivity {
     }
 
     public void onBackPressed() {
+        progressDialog.dismiss();
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Konfirmasi keluar aplikasi");
         builder.setIcon(R.drawable.ic_exit_to_app_black_24dp);
@@ -45,5 +66,26 @@ public class LupaPassword extends AppCompatActivity {
 
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+    }
+
+    //ketika tombol Confirm ditekan maka link reset password akan di berikan melalui email
+    public void konfirmasiEmailUser(View view) {
+        progressDialog = new ProgressDialog(this);
+        progressDialog.show();
+        progressDialog.setContentView(R.layout.progress_dialog);
+        progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
+        firebaseAuth.sendPasswordResetEmail(etEmail.getText().toString())
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        progressDialog.dismiss();
+                        if(task.isSuccessful()){
+                            Toast.makeText(LupaPassword.this, "Sukses, silahkan buka Email/Gmail anda untuk ubah kata sandi", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(LupaPassword.this, "Maaf, silahkan periksa kembali Email/Gmail anda, pastikan terhubung Internet", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 }

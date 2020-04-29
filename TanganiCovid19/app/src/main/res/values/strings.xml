@@ -9,7 +9,7 @@
     <string name="masuk">Masuk</string>
     <string name="atau">Atau</string>
     <string name="saya_belum_memiliki_akun">Saya Belum Memiliki Akun</string>
-    <string name="mendaftar_akun_secara_gratis_n_hingga_kapanpun">Mendaftar akun secara gratis \n hingga kapanpun</string>
+    <string name="mendaftar_akun_secara_gratis_n_hingga_kapanpun">Mendaftar akun secara\n gratis hingga kapanpun</string>
     <string name="masukkan_nama_anda">Masukkan nama anda</string>
     <string name="mendaftar">Mendaftar</string>
     <string name="kembali_ke_halaman_login">Kembali ke halaman Login</string>
@@ -19,4 +19,7 @@
     <string name="invalid_name">Maaf, nama tidak boloh kosong</string>
     <string name="invalid_email">Maaf, email tidak sesuai</string>
     <string name="invalid_password">Maaf, kata sandi tidak boleh kosong</string>
+    <string name="jangan_khawatir_kami_akan_membantu_anda">Jangan khawatir, kami akan membantu anda</string>
+    <string name="konfirmasi_email">Konfirmasi email</string>
+    <string name="silahkan_tunggu">Silahkan Tunggu...</string>
 </resources>

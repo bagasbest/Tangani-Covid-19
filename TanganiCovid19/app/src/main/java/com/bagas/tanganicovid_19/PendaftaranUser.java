@@ -5,6 +5,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -33,7 +34,7 @@ public class PendaftaranUser extends AppCompatActivity {
     DatabaseReference databaseReference;
     FirebaseAuth firebaseAuth;
     AwesomeValidation awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
-
+    ProgressDialog progressDialog;
 
     @SuppressLint("CutPasteId")
     @Override
@@ -60,6 +61,7 @@ public class PendaftaranUser extends AppCompatActivity {
     }
 
     public void onBackPressed() {
+        progressDialog.dismiss();
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Konfirmasi keluar aplikasi");
         builder.setIcon(R.drawable.ic_exit_to_app_black_24dp);
@@ -96,7 +98,18 @@ public class PendaftaranUser extends AppCompatActivity {
         awesomeValidation.addValidation(this, R.id.et_regis_password,
                 RegexTemplate.NOT_EMPTY,R.string.invalid_password);
 
+        if(!rbLaki.isChecked() && !rbPerempuan.isChecked()) {
+            Toast.makeText(this, "Maaf anda harus memilih jenis kelamin", Toast.LENGTH_SHORT).show();
+        }
+
+
+
             if(awesomeValidation.validate()) {
+
+                progressDialog = new ProgressDialog(this);
+                progressDialog.show();
+                progressDialog.setContentView(R.layout.progress_dialog);
+                progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 
                 final String username = etNama.getText().toString();
                 final String email = etEmail.getText().toString();
@@ -124,6 +137,7 @@ public class PendaftaranUser extends AppCompatActivity {
                                            .setValue(information).addOnCompleteListener(new OnCompleteListener<Void>() {
                                        @Override
                                        public void onComplete(@NonNull Task<Void> task) {
+                                           progressDialog.dismiss();
                                             Toast.makeText(PendaftaranUser.this, "Registration Complete", Toast.LENGTH_SHORT).show();
                                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                                        }

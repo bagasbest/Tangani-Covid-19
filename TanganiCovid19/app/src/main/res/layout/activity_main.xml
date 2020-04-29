@@ -23,7 +23,7 @@
 
     <ImageView
         android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_height="130dp"
         android:src="@drawable/logo_tanganicovid19"
         android:contentDescription="@string/img" />
 
@@ -100,7 +100,7 @@
         android:onClick="mendaftar"
         android:textStyle="bold"
         android:fontFamily="@font/m_medium"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="16dp"
         android:padding="10dp"
         android:textColor="#081460"
         tools:ignore="OnClick" />
