@@ -61,7 +61,7 @@ public class PendaftaranUser extends AppCompatActivity {
     }
 
     public void onBackPressed() {
-        progressDialog.dismiss();
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Konfirmasi keluar aplikasi");
         builder.setIcon(R.drawable.ic_exit_to_app_black_24dp);
@@ -71,6 +71,7 @@ public class PendaftaranUser extends AppCompatActivity {
         builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                finishAndRemoveTask();
                 finish();
             }
         });
@@ -96,7 +97,7 @@ public class PendaftaranUser extends AppCompatActivity {
                 Patterns.EMAIL_ADDRESS,R.string.invalid_email);
 
         awesomeValidation.addValidation(this, R.id.et_regis_password,
-                RegexTemplate.NOT_EMPTY,R.string.invalid_password);
+                ".{6,}",R.string.invalid_password);
 
         if(!rbLaki.isChecked() && !rbPerempuan.isChecked()) {
             Toast.makeText(this, "Maaf anda harus memilih jenis kelamin", Toast.LENGTH_SHORT).show();
@@ -138,7 +139,7 @@ public class PendaftaranUser extends AppCompatActivity {
                                        @Override
                                        public void onComplete(@NonNull Task<Void> task) {
                                            progressDialog.dismiss();
-                                            Toast.makeText(PendaftaranUser.this, "Registration Complete", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(PendaftaranUser.this, "Anda berhasil mendaftar", Toast.LENGTH_SHORT).show();
                                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                                        }
                                    });

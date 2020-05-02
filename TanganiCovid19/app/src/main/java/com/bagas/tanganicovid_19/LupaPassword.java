@@ -8,12 +8,15 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,6 +25,7 @@ public class LupaPassword extends AppCompatActivity {
 
     private EditText etEmail;
 
+    AwesomeValidation awesomeValidation;
     FirebaseAuth firebaseAuth;
     ProgressDialog progressDialog;
 
@@ -43,7 +47,7 @@ public class LupaPassword extends AppCompatActivity {
     }
 
     public void onBackPressed() {
-        progressDialog.dismiss();
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Konfirmasi keluar aplikasi");
         builder.setIcon(R.drawable.ic_exit_to_app_black_24dp);
@@ -53,6 +57,7 @@ public class LupaPassword extends AppCompatActivity {
         builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                finishAndRemoveTask();
                 finish();
             }
         });
@@ -70,22 +75,29 @@ public class LupaPassword extends AppCompatActivity {
 
     //ketika tombol Confirm ditekan maka link reset password akan di berikan melalui email
     public void konfirmasiEmailUser(View view) {
-        progressDialog = new ProgressDialog(this);
-        progressDialog.show();
-        progressDialog.setContentView(R.layout.progress_dialog);
-        progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
+        awesomeValidation.addValidation(this, R.id.et_email_user,
+                Patterns.EMAIL_ADDRESS, R.string.invalid_email);
 
-        firebaseAuth.sendPasswordResetEmail(etEmail.getText().toString())
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        progressDialog.dismiss();
-                        if(task.isSuccessful()){
-                            Toast.makeText(LupaPassword.this, "Sukses, silahkan buka Email/Gmail anda untuk ubah kata sandi", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(LupaPassword.this, "Maaf, silahkan periksa kembali Email/Gmail anda, pastikan terhubung Internet", Toast.LENGTH_SHORT).show();
+        if (awesomeValidation.validate()) {
+
+            progressDialog = new ProgressDialog(this);
+            progressDialog.show();
+            progressDialog.setContentView(R.layout.progress_dialog);
+            progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
+            firebaseAuth.sendPasswordResetEmail(etEmail.getText().toString())
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            progressDialog.dismiss();
+                            if (task.isSuccessful()) {
+                                Toast.makeText(LupaPassword.this, "Sukses, silahkan buka Email/Gmail anda untuk ubah kata sandi", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(LupaPassword.this, "Maaf, silahkan periksa kembali Email/Gmail anda, pastikan terhubung Internet", Toast.LENGTH_SHORT).show();
+                            }
                         }
-                    }
-                });
+                    });
+        }
     }
 }
