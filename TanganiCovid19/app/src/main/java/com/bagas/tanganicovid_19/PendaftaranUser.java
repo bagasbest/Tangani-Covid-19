@@ -23,8 +23,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
 
 public class PendaftaranUser extends AppCompatActivity {
     EditText etNama, etEmail, etPassword;
@@ -114,7 +117,7 @@ public class PendaftaranUser extends AppCompatActivity {
 
                 final String username = etNama.getText().toString();
                 final String email = etEmail.getText().toString();
-                String password = etPassword.getText().toString();
+                final String password = etPassword.getText().toString();
 
                 if (rbLaki.isChecked()) {
                     gender = "Laki-laki";
@@ -129,23 +132,50 @@ public class PendaftaranUser extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    Users information = new Users(
-                                            username, email, gender
-                                    );
+//                                    Users information = new Users(
+//                                            username, email, gender, password
+//                                    );
+                                    FirebaseUser user = firebaseAuth.getCurrentUser();
 
-                                   FirebaseDatabase.getInstance().getReference("User")
-                                           .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                           .setValue(information).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                       @Override
-                                       public void onComplete(@NonNull Task<Void> task) {
-                                           progressDialog.dismiss();
-                                            Toast.makeText(PendaftaranUser.this, "Anda berhasil mendaftar", Toast.LENGTH_SHORT).show();
-                                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                                       }
-                                   });
+                                    String email = user.getEmail();
+                                    String uid = user.getUid();
 
+                                    HashMap<Object, String> hashMap = new HashMap<>();
+                                    hashMap.put("email", email);
+                                    hashMap.put("uid", uid);
+                                    hashMap.put("username", username);
+                                    hashMap.put("gender", gender);
+                                    hashMap.put("password", password);
+                                    hashMap.put("image", "");
+                                    hashMap.put("phone", "");
+                                    hashMap.put("cover", "");
+
+
+                                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                                    DatabaseReference reference = database.getReference("User");
+                                    reference.child(uid).setValue(hashMap);
+
+
+
+
+//                                   FirebaseDatabase.getInstance().getReference("User")
+//                                           .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+//                                           .setValue(information).addOnCompleteListener(new OnCompleteListener<Void>() {
+//                                       @Override
+//                                       public void onComplete(@NonNull Task<Void> task) {
+//                                           progressDialog.dismiss();
+//                                            Toast.makeText(PendaftaranUser.this, "Anda berhasil mendaftar", Toast.LENGTH_SHORT).show();
+//                                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+//                                       }
+//                                   });
+
+                                    progressDialog.dismiss();
+                                    Toast.makeText(PendaftaranUser.this, "Anda berhasil mendaftar", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                    finish();
                                 } else {
-
+                                        progressDialog.dismiss();
+                                        Toast.makeText(PendaftaranUser.this, "Maaf, pendaftaran tidak berhasil", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });

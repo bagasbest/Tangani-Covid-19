@@ -5,6 +5,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -19,6 +20,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MenuUtama extends AppCompatActivity {
     ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +42,9 @@ public class MenuUtama extends AppCompatActivity {
 
                     switch (item.getItemId()) {
                         case R.id.nav_profil:
+
                             selectedFragment = new ProfilFragment();
+
                             break;
                         case R.id.nav_lokasi:
 //                            selectedActivity = new MapsActivity();
