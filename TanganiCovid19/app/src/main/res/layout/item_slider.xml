@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="350dp"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:layout_margin="16dp"
+    android:background="@drawable/icon_bg2">
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@drawable/icon_bg">
+
+        <ImageView
+            android:id="@+id/icon_slider_item"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/outline_question_answer_white_18dp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/judul_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/m_medium"
+            android:text="Lapor Covid-19"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/deskripsi_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/m_medium"
+            android:text="Membantu anda untuk melaporkan kondisi anda maupun sekitar secara cepat" />
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+</LinearLayout>

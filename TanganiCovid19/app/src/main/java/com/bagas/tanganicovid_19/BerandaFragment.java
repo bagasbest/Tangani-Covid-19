@@ -9,10 +9,13 @@ import android.view.ViewGroup;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
+
 /**
  * A simple {@link Fragment} subclass.
  */
 public class BerandaFragment extends Fragment {
+
 
     public BerandaFragment() {
         // Required empty public constructor
@@ -25,6 +28,8 @@ public class BerandaFragment extends Fragment {
 
         return inflater.inflate(R.layout.fragment_beranda, container, false);
     }
+
+
 
 
 }
