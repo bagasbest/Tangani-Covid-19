@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:background="@android:color/white"
+    >
 
 <RelativeLayout
     android:layout_width="match_parent"
@@ -348,7 +349,9 @@
                 android:layout_margin="16dp"
                 android:background="@drawable/icon_bg2"
                 android:orientation="horizontal"
-                android:padding="10dp">
+                android:clickable="true"
+                android:padding="10dp"
+                android:focusable="true">
 
 
                 <RelativeLayout
@@ -371,7 +374,7 @@
                     android:orientation="vertical">
 
                     <TextView
-
+                        android:id="@+id/tv_tentang_aplikasi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -382,7 +385,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-
+                        android:id="@+id/tv_deskripsi_tentang_aplikasi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -414,7 +417,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="200dp"
                 android:layout_margin="15dp"
                 android:orientation="vertical"
                 android:background="@drawable/icon_bg3">
@@ -444,8 +447,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/judul_banner"
-                    android:layout_marginStart="105dp"
-                    android:layout_marginTop="9dp"
+                    android:layout_marginStart="58dp"
+                    android:layout_marginTop="13dp"
                     android:layout_toEndOf="@+id/covid19"
                     android:fontFamily="@font/m_medium"
                     android:text="Mari membaca"
@@ -474,9 +477,10 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_gravity="center">
 
 
 
@@ -484,14 +488,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/icon_bg4"
-                    android:padding="10dp"
+                    android:padding="14dp"
 
                     android:layout_margin="15dp">
 
-                    <ImageView
+                    <TextView
                         android:id="@+id/icon_batuk"
-                        android:layout_width="40dp"
+                        android:layout_width="45dp"
                         android:layout_height="40dp"
+                        android:text="Batuk kering"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
                         />
 
                 </RelativeLayout>
@@ -500,13 +507,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/icon_bg4"
-                    android:padding="10dp"
+                    android:padding="14dp"
                     android:layout_margin="15dp">
 
-                    <ImageView
-                        android:id="@+id/icon_demam"
+                    <TextView
+
                         android:layout_width="40dp"
                         android:layout_height="40dp"
+                        android:text="Sesak nafas"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
                         />
 
                 </RelativeLayout>
@@ -515,31 +525,24 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/icon_bg4"
+
                     android:padding="10dp"
                     android:layout_margin="15dp">
 
-                    <ImageView
-                        android:id="@+id/icon_sesak_nafas"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                         />
+                    <TextView
 
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/icon_bg4"
-                    android:padding="10dp"
-                    android:layout_margin="15dp">
-
-                    <ImageView
-                        android:id="@+id/icon_tidak_enak_badan"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:text="Tubuh demam"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
                         />
 
                 </RelativeLayout>
+
+
+
+
 
 
             </LinearLayout>

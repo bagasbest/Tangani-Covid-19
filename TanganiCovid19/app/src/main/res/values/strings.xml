@@ -28,5 +28,10 @@
 
     <string name="map_key" translatable="false">AIzaSyCIIq07bf12436lUHGpqXxn3ICl2ydPXF4</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tv_instagram_bagas">@bagas_best</string>
+    <string name="tv_content_tentang_app">Aplikasi tangani Covid-19 dikembangkan oleh Bagas Pangestu yang saat ini sedang menempuh pendidikan di Teknik Informatika ITERA, Aplikasi Tangani Covid-19 ini memiliki tujuan untuk memetakan kasus Covid-19 yang terjadi di Indonesia dan melaporkan keluhan yang dialami oleh masyarakat Indonesia baik diri sendiri maupun keluhan lingkungan sekitar. \n\n Anda dapat melaporkan indikasi terkait Covid-19 melalui Beranda kemudian menu Lapor Covid-19. \n\n Aplikasi ini juga berisi Trik dan Tips menghindari Covid-19 yang dapat anda terapkan di rumah ataupun di manapun.</string>
+
 
 </resources>
