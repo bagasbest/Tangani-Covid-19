@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddPostActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/pTitleEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:hint="Tuliskan judul"
+            android:inputType="text"
+            android:background="@drawable/editstyle"
+            android:autofillHints="no" />
+
+        <ImageView
+            android:id="@+id/pImageIv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="200dp"
+            android:background="#7D0FB5"
+            android:contentDescription="@string/immg" />
+
+        <EditText
+            android:id="@+id/pDescriptionEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:inputType="textCapSentences|textMultiLine"
+            android:minHeight="120dp"
+            android:hint="Tuliskan deskripsi"
+            android:gravity="start"
+            android:background="@drawable/editstyle"
+            android:autofillHints="no" />
+
+        <Button
+            android:id="@+id/pUploadBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buat diskusi"
+            android:background="@drawable/rounded_btn"
+            android:padding="16dp"
+            android:layout_gravity="end"
+            android:layout_margin="10dp"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false" />
+
+
+
+
+
+    </LinearLayout>
+
+</ScrollView>

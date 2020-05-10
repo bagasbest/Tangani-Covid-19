@@ -70,7 +70,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5sp"
                         android:fontFamily="sans-serif-medium"
-                        android:text="0"
+                        android:text="13.645"
                         android:textAlignment="center"
                         android:textColor="@android:color/holo_red_light"
                         android:textSize="20sp"
@@ -115,7 +115,7 @@
                             android:layout_height="wrap_content"
                             android:layout_margin="5sp"
                             android:fontFamily="sans-serif-medium"
-                            android:text="0"
+                            android:text="2607"
                             android:textAlignment="center"
                             android:textColor="@android:color/holo_green_dark"
                             android:textSize="20sp"
@@ -155,7 +155,7 @@
                             android:layout_height="wrap_content"
                             android:layout_margin="5sp"
                             android:fontFamily="sans-serif-medium"
-                            android:text="0"
+                            android:text="959"
                             android:textAlignment="center"
                             android:textColor="@android:color/darker_gray"
                             android:textSize="20sp"
@@ -213,7 +213,6 @@
                     android:orientation="vertical">
 
                     <TextView
-
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -224,7 +223,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-
+                        android:id="@+id/dial_up"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -266,7 +265,7 @@
                     android:orientation="vertical">
 
                     <TextView
-
+                        android:id="@+id/tv_judul_diskusi_dengan_orang_lain"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -277,7 +276,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-
+                        android:id="@+id/tv_deskripsi_diskusi_dengan_orang_lain"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -319,7 +318,7 @@
                     android:orientation="vertical">
 
                     <TextView
-
+                        android:id="@+id/tips_and_trick_judul"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -330,7 +329,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-
+                        android:id="@+id/tips_and_trick_desc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -444,11 +443,13 @@
                     android:layout_marginStart="10dp" />
 
                 <TextView
+                    android:id="@+id/banner_penting"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/judul_banner"
                     android:layout_marginStart="58dp"
                     android:layout_marginTop="13dp"
+                    android:padding="10dp"
                     android:layout_toEndOf="@+id/covid19"
                     android:fontFamily="@font/m_medium"
                     android:text="Mari membaca"

@@ -8,7 +8,6 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@drawable/thumbnail"
@@ -16,7 +15,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MapsActivity" android:label="Lokasi anda"></activity>
+        <activity android:name=".ThereProfileActivity"></activity>
+        <activity
+            android:name=".BannerActivity"
+            android:parentActivityName=".MenuUtama" />
+        <activity
+            android:name=".TipsTrickActivity"
+            android:parentActivityName=".MenuUtama" />
+        <activity
+            android:name=".DiskusiActivity"
+            android:parentActivityName=".MenuUtama" />
+        <activity
+            android:name=".AddPostActivity"
+            android:parentActivityName=".DiskusiActivity" />
+        <activity
+            android:name=".MapsActivity"
+            android:label="Lokasi anda" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

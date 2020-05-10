@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ThereProfileActivity">
 
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -82,39 +82,12 @@
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/tv_aktifitas_anda"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Aktivitas anda"
-                android:layout_below="@+id/linearLayout"
-                android:textSize="20sp"
-                android:fontFamily="@font/m_regular"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:textColor="@android:color/black" />
-
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerview_post"
-                android:layout_below="@+id/tv_aktifitas_anda"
+                android:layout_below="@+id/linearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
         </RelativeLayout>
 
-    </ScrollView>
-    
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="20dp"
-        android:src="@drawable/ic_edit"
-        android:layout_marginBottom="20dp" />
-
-
-
-</RelativeLayout>
+</ScrollView>
